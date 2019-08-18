@@ -1,0 +1,22 @@
+{
+  "name": "mmm-timetree",
+  "version": "1.0.0",
+  "description": "magic mirror module for time tree",
+  "main": "MMM-TimeTree.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ASM88/MMM-TimeTree.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ASM88/MMM-TimeTree/issues"
+  },
+  "homepage": "https://github.com/ASM88/MMM-TimeTree#readme",
+  "dependencies": {
+    "@timetreeapp/web-api": "2.0.1"
+  }
+}
