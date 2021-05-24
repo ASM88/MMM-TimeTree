@@ -9,9 +9,11 @@ class TimeTreeFormatter {
     format(event) {
         const startDate = event.start.split("T")[0].split("-").reverse().join(".");
         const endDate = event.end.split("T")[0].split("-").reverse().join(".");
-        let tmpTime = event.start.split("T")[1].split(".")[0].split(":").pop();
+        let tmpTime = event.start.split("T")[1].split(".")[0].split(":");
+        tmpTime.pop();
         const startTime = tmpTime.join(":");
-        tmpTime = event.end.split("T")[1].split(".")[0].split(":").pop();
+        tmpTime = event.end.split("T")[1].split(".")[0].split(":");
+        tmpTime.pop();
         const endTime = tmpTime.join(":");
 
         const ev = document.createElement("div");
