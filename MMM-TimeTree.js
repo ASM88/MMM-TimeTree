@@ -21,7 +21,7 @@ Module.register('MMM-TimeTree', {
         const wrapper = document.createElement("div");
         if (this.initialized) {
             Log.info("Initialized");
-            wrapper.innerHTML = this.context;
+            wrapper.appendChild(context);
         } else {
             Log.info("Not initialized yet");
             wrapper.innerHTML = "<div>Warte</div>";
