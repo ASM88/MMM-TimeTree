@@ -7,12 +7,12 @@ class TimeTreeFormatter {
     }
     
     format(event) {
-        const start = Date.parse(event.start);
-        const end = Date.parse(event.end);
-        const startDate = [start.getDay(), start.getMonth(), start.getFullYear()].join(".");
-        const endDate = [end.getDay(), end.getMonth(), end.getFullYear()].join(".");
-        const startTime = [start.getHours(), start.getMinutes()].join(":");
-        const endTime = [end.getHours(), end.getMinutes()].join(":");
+        const startDate = event.start.split("T")[0].split("-").reverse().join(".");
+        const endDate = event.end.split("T")[0].split("-").reverse().join(".");
+        let tmpTime = event.start.split("T")[1].split(".")[0].split(":").pop();
+        const startTime = tmpTime.join(":");
+        tmpTime = event.end.split("T")[1].split(".")[0].split(":").pop();
+        const endTime = tmpTime.join(":");
 
         const ev = document.createElement("div");
         ev.classList.add("calendar-row");
