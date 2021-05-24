@@ -7,8 +7,16 @@ class TimeTreeFormatter {
     }
     
     format(event) {
+        const start = Date.parse(event.start);
+        const end = Date.parse(event.end);
+        const startDate = start.toLocaleDateString();
+        const endDate = end.toLocaleDateString();
+        const startTime = start.toLocaleTimeString();
+        const endTime = end.toLocaleTimeString();
+
         const ev = document.createElement("div");
         ev.classList.add("calendar-row");
+        ev.style.borderLeftColor = ev.color;
 
         const title = document.createElement("div");
         title.classList.add("event-title");
@@ -19,12 +27,12 @@ class TimeTreeFormatter {
         date.classList.add("event-date");
         const dFrom = document.createElement("span");
         dFrom.classList.add("event-date-from");
-        dFrom.innerText = event.start;
+        dFrom.innerText = startDate;
         date.appendChild(dFrom);
-        if (event.start !== event.end) {
+        if (startDate !== endDate) {
             const dTo = document.createElement("span");
             dTo.classList.add("event-date-to");
-            dTo.innerText = event.end;
+            dTo.innerText = endDate;
             date.appendChild(dTo);
         }
         ev.appendChild(date);
@@ -38,11 +46,11 @@ class TimeTreeFormatter {
         } else {
             const tFrom = document.createElement("span");
             tFrom.classList.add("event-time-from");
-            tFrom.innerText = event.start;
+            tFrom.innerText = startTime;
             time.appendChild(tFrom);
             const tTo = document.createElement("span");
             tTo.classList.add("event-time-to");
-            tTo.innerText = event.end;
+            tTo.innerText = endTime;
             time.appendChild(tTo);
         }
         ev.appendChild(time);
