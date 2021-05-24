@@ -1,6 +1,5 @@
 const connector = require('./js/TimeTreeConnector');
 const NodeHelper = require("node_helper");
-const TimeTreeFormatter = require("./js/TimeTreeFormatter");
 const Log = require("logger");
 
 module.exports = NodeHelper.create({
@@ -21,9 +20,7 @@ module.exports = NodeHelper.create({
         Log.log('Refresh calendar=' + calendar);
         const self = this;
         this.client.events(calendar, numDays).then(evs => {
-            const formatter = new TimeTreeFormatter();
-            const htmlFormatted = formatter.formatAll(evs);
-            self.sendSocketNotification('TIME_TREE_REFRESH', {"html":htmlFormatted});
+            self.sendSocketNotification('TIME_TREE_REFRESH', {"events":evs});
             Log.log('Sent response to notification=TIME_TREE_REFRESH');
         });
     },

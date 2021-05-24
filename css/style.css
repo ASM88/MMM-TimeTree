@@ -1,0 +1,47 @@
+.calendar-row {
+    width: 30%;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    min-height: 50px;
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding-top: 2px;
+    padding-bottom: 2px;
+    margin-bottom: 5px;
+    padding-left: 5px;
+    border-left-color: blueviolet;
+}
+
+.event-title {
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.event-date, .event-time, .event-title {
+    width: 100%;
+}
+
+.event-date, .event-time {
+    margin-bottom: 5px;
+}
+
+.event-date:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f073";
+    padding-right: 1em;
+}
+
+.event-date-to:before {
+    content: "-";
+}
+
+.event-time-to:before {
+    content: "-";
+}
+
+.event-time:before {
+    font-family: "Font Awesome 5 Free";
+    content: "\f017";
+    padding-right: 1em;
+}

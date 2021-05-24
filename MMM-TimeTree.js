@@ -36,27 +36,31 @@ Module.register('MMM-TimeTree', {
         ];
     },
 
+    getScripts: function () {
+        return [
+            this.file('js/TimeTreeFormatter.js')
+        ]
+    },
+
     socketNotificationReceived: function(notification, payload) {
         Log.info("Frontend: Notification received " + notification);
         switch (notification) {
             case 'TIME_TREE_REFRESH':
-                Log.info("New data received: " + payload.test);
                 this.initialized = true;
-                this.context = payload.html;
+                this.context = new TimeTreeFormatter().formatAll(payload.events);
                 this.updateDom();
                 break;
             case 'TIME_TREE_CONNECT':
-                Log.info("Connect Status: " + payload.status);
                 this.startRefresh();
                 break;
         }
     },
 
     startRefresh() {
-        Log.info("First refresh.");
+        Log.info("Refresh");
         this.sendSocketNotification('TIME_TREE_REFRESH', {"calendar":this.config.calendar,"numDays":this.config.numDays});
         setInterval(() => {
-            Log.info("Next refresh.");
+            Log.info("Refresh");
             this.sendSocketNotification('TIME_TREE_REFRESH', {"calendar":this.config.calendar,"numDays":this.config.numDays});
         }, this.config.updateInMinutes * 1000 * 60);
     }
