@@ -9,10 +9,10 @@ class TimeTreeFormatter {
     format(event) {
         const start = Date.parse(event.start);
         const end = Date.parse(event.end);
-        const startDate = start.toLocaleDateString();
-        const endDate = end.toLocaleDateString();
-        const startTime = start.toLocaleTimeString();
-        const endTime = end.toLocaleTimeString();
+        const startDate = [start.getDay(), start.getMonth(), start.getFullYear()].join(".");
+        const endDate = [end.getDay(), end.getMonth(), end.getFullYear()].join(".");
+        const startTime = [start.getHours(), start.getMinutes()].join(":");
+        const endTime = [end.getHours(), end.getMinutes()].join(":");
 
         const ev = document.createElement("div");
         ev.classList.add("calendar-row");
