@@ -18,7 +18,7 @@ class TimeTreeFormatter {
 
         const ev = document.createElement("div");
         ev.classList.add("calendar-row");
-        ev.style.borderLeftColor = ev.color;
+        ev.style.borderLeftColor = event.color;
 
         const title = document.createElement("div");
         title.classList.add("event-title");
