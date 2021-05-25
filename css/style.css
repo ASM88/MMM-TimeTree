@@ -1,42 +1,36 @@
 .calendar-row {
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
+    width: 100%;
     border-left-style: solid;
     border-left-width: 4px;
-    padding-top: 2px;
-    padding-bottom: 2px;
+    padding-top: 5px;
+    padding-bottom: 5px;
     margin-bottom: 5px;
     padding-left: 5px;
-    font-size: 12px;
-    max-height: 30px;
+    font-size: 0.95rem;
+}
+
+.calendar-row > * {
+    width: 100%;
+    height: 1rem;
+    line-height: normal;
+    margin-bottom: 3px;
 }
 
 .event-title {
     font-weight: bold;
-    margin-bottom: 5px;
 }
 
-.event-date, .event-time, .event-title {
-    width: 100%;
+.event-time {
+    margin-bottom: 0px;
 }
 
-.event-date:before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f073";
-    padding-right: 1em;
-}
-
-.event-date-to:before {
+.event-date-to:before, .event-time-to:before {
     content: "-";
 }
 
-.event-time-to:before {
-    content: "-";
-}
-
-.event-time:before {
-    font-family: "Font Awesome 5 Free";
-    content: "\f017";
+.event-icon {
     padding-right: 1em;
+    width: 32px;
+    min-width: 32px;
+    max-width: 32px;
 }

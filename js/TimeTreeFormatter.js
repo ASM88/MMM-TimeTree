@@ -27,6 +27,9 @@ class TimeTreeFormatter {
 
         const date = document.createElement("div");
         date.classList.add("event-date");
+        const dGlyph = document.createElement("span");
+        dGlyph.classList.add("fa", "fa-calendar", "event-icon");
+        date.appendChild(dGlyph);
         const dFrom = document.createElement("span");
         dFrom.classList.add("event-date-from");
         dFrom.innerText = startDate;
@@ -41,6 +44,9 @@ class TimeTreeFormatter {
 
         const time = document.createElement("div");
         time.classList.add("event-time");
+        const tGlyph = document.createElement("span");
+        tGlyph.classList.add("fa", "fa-clock-o", "event-icon");
+        time.appendChild(tGlyph);
         if (event.allDay) {
             const allDay = document.createElement("span");
             allDay.innerText = "Ganztägig";
